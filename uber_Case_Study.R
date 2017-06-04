@@ -7,8 +7,6 @@ library(dplyr)
 install.packages("lubridate")
 install.packages("xts")
 #Read data into uber data frame
-
-
 #here are six attributes associated with each request made by a customer:
 # Request id: A unique identifier of the request
 #Time of request: The date and time at which the customer made the trip request
@@ -42,12 +40,11 @@ number_Of_Incomplete_rides<- sum(is.na(uber_Data$Travel_Time))
 completed_Rides<- filter(uber_Data, uber_Data$Status=="Trip Completed")
 mean_Travel_Time<- mean(completed_Rides$Travel_Time)
 #mean travel time for completed status is 52.41375 mins
-
 plot(completed_Rides$Travel_Time)
 
 #--------------------------------Analysis-------------------------------------------------
 
 # write the new uber data into csv for visualizing using tableau
-write.csv(uber_Data, file = "Uber_Data_AfterCleaning.csv")
+write.csv(uber_Data, file = "Uber_Data_AfterCleaning_Travel_Time.csv")
 
 #----- time slots creating is Done in Tableau---------------------------------------------
